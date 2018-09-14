@@ -1,0 +1,17 @@
+<div style="margin-top:30px;">
+<%= form_with(model: @conference_room, local: true, url: "/search") do |form| %>
+
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= form.submit "Search" %>
+  </div>
+<% end %>
+
+</div>

@@ -4,9 +4,14 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @conference_rooms.name %>
+  <%= @conference_rooms.name  %>
+</br>
+  <strong>Facility :</strong>
+  <% @facility.each { |t| %>
+        <%= t.name + ","%>
+    <% }  %>
 </p>
 
 
-<%= link_to 'Edit', edit_conference_room_path(@conference_rooms), class: "btn btn-warning" %>
+
 <%= link_to "Back", conference_rooms_path, class: "btn btn-default" %>

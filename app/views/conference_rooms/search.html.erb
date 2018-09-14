@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @conference_rooms.each do |room| %>
+      <% @conference_room.each do |room| %>
         <tr>
          <td class="col-md-4"><%= room.name %></td>
          <<td class="col-md-4">
@@ -22,4 +22,3 @@
   </table>
 </div>
 <br>
-<%= link_to 'Add New Room', new_conference_room_path, class: "btn btn-primary" %>
