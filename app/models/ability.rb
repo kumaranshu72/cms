@@ -33,7 +33,8 @@ class Ability
       can :read, :all
     elsif usr.manager?
       can :manage, :all
-
+    else
+      can :read, :all
     end
   end
 end
