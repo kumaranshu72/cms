@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :holidays
   root 'dashboard#index'
   devise_for :users
   resources :conference_rooms

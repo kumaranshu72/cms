@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  holiday_date: 2018-09-14
+
+two:
+  holiday_date: 2018-09-14

@@ -1,0 +1,2 @@
+class Factility < ApplicationRecord
+end
