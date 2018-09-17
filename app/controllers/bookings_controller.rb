@@ -45,7 +45,8 @@ class BookingsController < ApplicationController
         end
       end
     else
-      puts"errors"
+       flash[:danger] = 'Enter Valid Date Time.'
+      redirect_to '/bookings/new'
     end
   end
 
