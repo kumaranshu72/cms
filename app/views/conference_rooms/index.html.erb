@@ -12,7 +12,7 @@
       <% @conference_rooms.each do |room| %>
         <tr>
          <td class="col-md-4"><%= room.name %></td>
-         <<td class="col-md-4">
+         <td class="col-md-4">
             <%= link_to 'Show', {:action => 'show', :id => room.id}, class: "btn btn-info" %>
             <%= link_to 'Destroy', {:action => 'destroy', :id => room.id}, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
          </td>
