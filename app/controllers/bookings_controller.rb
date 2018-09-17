@@ -26,16 +26,26 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    
-    @booking = Booking.new(booking_params)
-    respond_to do |format|
-      if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
-        format.json { render :show, status: :created, location: @booking }
-      else
-        format.html { render :new }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
+    from_date = booking_params["from(1i)"]+'-'+booking_params["from(2i)"]+'-'+booking_params["from(3i)"]
+    from_time = booking_params["from(4i)"]+'-'+booking_params["from(5i)"]
+    to_date = booking_params["to(1i)"]+'-'+booking_params["to(2i)"]+'-'+booking_params["to(3i)"]
+    to_time = booking_params["to(4i)"]+'-'+booking_params["to(5i)"]
+    curr_date_time = DateTime.now.to_s
+    from_date_holiday = Holiday.find_by(holiday_date: from_date)
+    to_date_holiday = Holiday.find_by(holiday_date: to_date)
+    if (from_date+"T"+from_time < to_date+"T"+to_time) && (from_date+"T"+from_time >= curr_date_time[0...16]) && !from_date_holiday.present? && !to_date_holiday.present?
+      @booking = Booking.new(booking_params)
+      respond_to do |format|
+        if @booking.save
+          format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
+          format.json { render :show, status: :created, location: @booking }
+        else
+          format.html { render :new }
+          format.json { render json: @booking.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      puts"errors"
     end
   end
 
